@@ -29,7 +29,6 @@ let layers = [
         format: 'image/png',
         url: 'https://geo.weather.gc.ca/geomet/',
         params: {'LAYERS': 'RADAR_1KM_RSNO', 'TILED': true},
-        crossOrigin: 'Anonymous'
       })
     }),
     new ol.layer.Image({
@@ -37,8 +36,7 @@ let layers = [
         format: 'image/png',
         url: 'https://geo.weather.gc.ca/geomet/',
         params: {'LAYERS': 'RADAR_COVERAGE_RSNO.INV', 'TILED': true},
-        transition: 0,
-        crossOrigin: 'Anonymous'
+        transition: 0
       })
     })
   ]
@@ -86,21 +84,6 @@ let stop = function() {
   }
 };
 
-let exportMapFunction = function() {
-    map.once('postcompose', function(event) {
-      var canvas = event.context.canvas;
-      if (navigator.msSaveBlob) {
-        navigator.msSaveBlob(canvas.msToBlob(), 'map.png');
-      } else {
-        canvas.toBlob(function(blob) {
-          saveAs(blob, 'map.png');
-        });
-      }
-    });
-    map.renderSync();
-};
-
-
 let play = function() {
   stop();
   animationId = window.setInterval(setTime, 1000 / frameRate);
@@ -111,6 +94,3 @@ startButton.addEventListener('click', play, false);
 
 let stopButton = document.getElementById('pause');
 stopButton.addEventListener('click', stop, false);
-
-let exportButton = document.getElementById('exportmap');
-exportButton.addEventListener('click', exportMapFunction, false);
