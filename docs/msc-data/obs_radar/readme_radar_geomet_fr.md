@@ -19,6 +19,7 @@ Exemple de carte interactive présentant des couches WMS de la composite radar m
 <div id="controller" role="group" aria-label="Animation controls" style="background: #ececec; padding: 0.5rem;">
   <button id="play" class="btn btn-primary btn-sm" type="button"><i class="fa fa-play" style="padding: 0rem 1rem"></i></button>
   <button id="pause" class="btn btn-primary btn-sm" type="button"><i class="fa fa-pause" style="padding: 0rem 1rem"></i></button>
+  <button id="exportmap" class="btn btn-primary btn-sm" type="button"><i class="fa fa-download" style="padding: 0rem 1rem"></i></button>
   <span id="info" style="padding-left: 0.5rem;"></span>
 </div>
 Les couches de la composite radar météo nord-américaine de GeoMet du SMC peuvent être vues en action dans MétéoCAN, [l'application mobile officielle d'ECCC](https://www.canada.ca/fr/environnement-changement-climatique/services/conditions-meteorologiques-ressources-outils-generaux/meteocan.html).
