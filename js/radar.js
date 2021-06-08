@@ -86,24 +86,21 @@ let stop = function() {
   }
 };
 
-let exportMapFunction = function() {
-    map.once('postcompose', function(event) {
-      var canvas = event.context.canvas;
-      if (navigator.msSaveBlob) {
-        navigator.msSaveBlob(canvas.msToBlob(), 'map.jpg');
-      } else {
-        canvas.toBlob(function(blob) {
-          saveAs(blob, 'map.jpg');
-        });
-      }
-    });
-    map.renderSync();
-};
-
 
 let play = function() {
   stop();
   animationId = window.setInterval(setTime, 1000 / frameRate);
+};
+
+
+let exportMapFunction = function(e) {
+  map.once('postcompose', function(event) {
+    var canvas = event.context.canvas;
+    canvas.toBlob(function(blob) {
+      saveAs(blob, 'msc_web-map_export.jpg')
+    }, 'image/jpeg',0.9);
+  });
+  map.renderSync();
 };
 
 let startButton = document.getElementById('play');
