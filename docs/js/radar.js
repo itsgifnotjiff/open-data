@@ -97,7 +97,7 @@ let exportMapFunction = function(e) {
   map.once('postcompose', function(event) {
     var canvas = event.context.canvas;
     canvas.toBlob(function(blob) {
-      saveAs(blob, 'msc_web-map_export.jpg')
+      saveAs(blob, 'msc-geomet_web-map_export.jpg')
     }, 'image/jpeg',0.9);
   });
   map.renderSync();
