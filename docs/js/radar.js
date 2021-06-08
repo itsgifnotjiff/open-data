@@ -90,10 +90,10 @@ let exportMapFunction = function() {
     map.once('postcompose', function(event) {
       var canvas = event.context.canvas;
       if (navigator.msSaveBlob) {
-        navigator.msSaveBlob(canvas.msToBlob(), 'map.png');
+        navigator.msSaveBlob(canvas.msToBlob(), 'map.jpg');
       } else {
         canvas.toBlob(function(blob) {
-          saveAs(blob, 'map.png');
+          saveAs(blob, 'map.jpg');
         });
       }
     });
