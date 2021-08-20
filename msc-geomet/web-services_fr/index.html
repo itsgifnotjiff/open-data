@@ -71,6 +71,10 @@
 </li>
                                     
 <li>
+    <a href="../../usage/tutorial_graphs-tables_en/" class="dropdown-item">Add tables and graphs</a>
+</li>
+                                    
+<li>
     <a href="../../usage/tutorial_raw-data_QGIS_en/" class="dropdown-item">Add raw data to QGIS /<br>Ajouter des données brutes à QGIS</a>
 </li>
                                     
@@ -83,7 +87,7 @@
 </li>
                                     
 <li>
-    <a href="../../usage/use-case_oafeat/use-case_oafeat-interactive_en/" class="dropdown-item">Make OGC API - Feature requests from Python /<br>Faire des requêtes OGC API - Features avec Python</a>
+    <a href="../../usage/use-case_oafeat/use-case_oafeat-script_en/" class="dropdown-item">Make OGC API - Feature requests from Python /<br>Faire des requêtes OGC API - Features avec Python</a>
 </li>
                                     
 <li>
@@ -508,29 +512,30 @@ multipleValues=&quot;1&quot; nearestValue=&quot;0&quot;&gt;2019-06-11T00:00:00Z/
 &amp;STYLES=RDPA-WXO&amp;CRS=EPSG:4326&amp;BBOX=35,-150,85,-45&amp;WIDTH=600&amp;HEIGHT=400&amp;FORMAT=image/png
 </code></pre>
 <p><img alt="Couche RDPA.24F_PR avec le style RDPA-WXO" src="https://geo.meteo.gc.ca/geomet?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;LAYERS=RDPA.24F_PR&amp;STYLES=RDPA-WXO&amp;CRS=EPSG:4326&amp;BBOX=35,-150,85,-45&amp;WIDTH=600&amp;HEIGHT=400&amp;FORMAT=image/png" /></p>
-<p>Les utilisateurs peuvent également spécifier leurs propres styles en fournissant par le biais du standard <a href="https://www.opengeospatial.org/standards/sld">OGC Styled Layer Descriptor (SLD)</a>, soit en pointant vers un document SLD externe avec le paramètre <code>SLD</code> soit en spécifiant le contenu SLD directement dans le paramètre <code>SLD_BODY</code>. Notez que le contenu de <code>SLD_BODY</code> doit être encodé tel un URL HTTP.</p>
+<p>Les utilisateurs peuvent également spécifier leurs propres styles en fournissant par le biais du standard <a href="https://www.opengeospatial.org/standards/sld">OGC Styled Layer Descriptor (SLD)</a>, soit en pointant vers un document SLD externe avec le paramètre <code>SLD</code> soit en spécifiant le contenu SLD directement dans le paramètre <code>SLD_BODY</code>. Notez que le contenu de <code>SLD_BODY</code> doit être entièrement encodé tel un URL HTTP.</p>
 <pre><code>https://geo.meteo.gc.ca/geomet?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;LAYERS=GDPS.ETA_NT
 &amp;STYLES=&amp;CRS=EPSG:4326&amp;BBOX=35,-150,85,-45&amp;WIDTH=1800&amp;HEIGHT=1200&amp;FORMAT=image/png
-&amp;SLD_BODY=%3C%3Fxml+version%3D%221.0%22+encoding%3D%22UTF-8%22%3F%3E+%3C
-StyledLayerDescriptor+version%3D%221.0.0%22+xmlns%3D%22http%3A%2F%2F
-www.opengis.net%2Fsld%22+xmlns%3Aogc%3D%22http%3A%2F%2Fwww.opengis.net
-%2Fogc%22+xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22+xmlns%3
-Axsi%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema-instance%22+xsi%3A
-schemaLocation%3D%22http%3A%2F%2Fwww.opengis.net%2Fsld+http%3A%2F%2Fschemas.opengis.net
-%2Fsld%2F1.0.0%2FStyledLayerDescriptor.xsd%22%3E+%3CNamedLayer%3E+%3Cse%3AName%3E
-GDPS.ETA_NT%3C%2Fse%3AName%3E+%3CUserStyle%3E+%3Cse%3AName%3ETEST%3C%2Fse%3AName%3E+%3Cse%3A
-FeatureTypeStyle%3E+%3Cse%3ARule%3E+%3Cse%3ARasterSymbolizer%3E+%3Cse%3AOpacity%3E1.0
-%3C%2Fse%3AOpacity%3E+%3CColorMap%3E+%3CColorMapEntry+color%3D%22%238cff66%22+quantity
-%3D%220%22%2F%3E+%3CColorMapEntry+color%3D%22%23ffff00%22+quantity%3D%2225%22%2F%3E+%3C
-ColorMapEntry+color%3D%22%23b38600%22+quantity%3D%2250%22%2F%3E+%3CColorMapEntry+color
-%3D%22%23cc0000%22+quantity%3D%2275%22%2F%3E+%3CColorMapEntry+color%3D%22%234d0000%22+
-quantity%3D%22100%22%2F%3E+%3C%2FColorMap%3E+%3C%2Fse%3ARasterSymbolizer%3E+%3C%2Fse%3A
-Rule%3E+%3C%2Fse%3AFeatureTypeStyle%3E+%3C%2FUserStyle%3E+%3C%2FNamedLayer%3E+%3C%2FStyledLayerDescriptor%3E
+&amp;SLD_BODY=%22%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%20%3C
+StyledLayerDescriptor%20version%3D%221.0.0%22%20xmlns%3D%22http%3A%2F%2Fwww.opengis.net
+%2Fsld%22%20xmlns%3Aogc%3D%22http%3A%2F%2Fwww.opengis.net%2Fogc%22%20xmlns%3Axlink%3D%22
+http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Axsi%3D%22http%3A%2F%2Fwww.w3.org%2F
+2001%2FXMLSchema-instance%22%20xsi%3AschemaLocation%3D%22http%3A%2F%2Fwww.opengis.net%2Fsld
+%20http%3A%2F%2Fschemas.opengis.net%2Fsld%2F1.0.0%2FStyledLayerDescriptor.xsd%22%3E%20%3C
+NamedLayer%3E%20%3Cse%3AName%3EGDPS.ETA_NT%3C%2Fse%3AName%3E%20%3CUserStyle%3E%20%3CTitle
+%3ETEST%3C%2FTitle%3E%20%3Cse%3AFeatureTypeStyle%3E%20%3Cse%3ARule%3E%20%3Cse%3A
+RasterSymbolizer%3E%20%3Cse%3AOpacity%3E1.0%3C%2Fse%3AOpacity%3E%20%3CColorMap%3E%20%3C
+ColorMapEntry%20color%3D%22%238cff66%22%20quantity%3D%220%22%2F%3E%20%3C
+ColorMapEntry%20color%3D%22%23ffff00%22%20quantity%3D%2225%22%2F%3E%20%3C
+ColorMapEntry%20color%3D%22%23b38600%22%20quantity%3D%2250%22%2F%3E%20%3C
+ColorMapEntry%20color%3D%22%23cc0000%22%20quantity%3D%2275%22%2F%3E%20%3C
+ColorMapEntry%20color%3D%22%234d0000%22%20quantity%3D%22100%22%2F%3E%20%3C%2FColorMap%3E
+%20%3C%2Fse%3ARasterSymbolizer%3E%20%3C%2Fse%3ARule%3E%20%3C%2Fse%3AFeatureTypeStyle%3E
+%20%3C%2FUserStyle%3E%20%3C%2FNamedLayer%3E%20%3C%2FStyledLayerDescriptor%3E%0A
 </code></pre>
-<p><img alt="Couche du SGPD avec un style SLD provenant de l'usager" src="https://geo.meteo.gc.ca/geomet?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;LAYERS=GDPS.ETA_NT&amp;STYLES=&amp;CRS=EPSG:4326&amp;BBOX=35,-150,85,-45&amp;WIDTH=600&amp;HEIGHT=400&amp;FORMAT=image/png&amp;SLD_BODY=%3C%3Fxml+version%3D%221.0%22+encoding%3D%22UTF-8%22%3F%3E+%3CStyledLayerDescriptor+version%3D%221.0.0%22+xmlns%3D%22http%3A%2F%2Fwww.opengis.net%2Fsld%22+xmlns%3Aogc%3D%22http%3A%2F%2Fwww.opengis.net%2Fogc%22+xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22+xmlns%3Axsi%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema-instance%22+xsi%3AschemaLocation%3D%22http%3A%2F%2Fwww.opengis.net%2Fsld+http%3A%2F%2Fschemas.opengis.net%2Fsld%2F1.0.0%2FStyledLayerDescriptor.xsd%22%3E+%3CNamedLayer%3E+%3Cse%3AName%3EGDPS.ETA_NT%3C%2Fse%3AName%3E+%3CUserStyle%3E+%3Cse%3AName%3ETEST%3C%2Fse%3AName%3E+%3Cse%3AFeatureTypeStyle%3E+%3Cse%3ARule%3E+%3Cse%3ARasterSymbolizer%3E+%3Cse%3AOpacity%3E1.0%3C%2Fse%3AOpacity%3E+%3CColorMap%3E+%3CColorMapEntry+color%3D%22%238cff66%22+quantity%3D%220%22%2F%3E+%3CColorMapEntry+color%3D%22%23ffff00%22+quantity%3D%2225%22%2F%3E+%3CColorMapEntry+color%3D%22%23b38600%22+quantity%3D%2250%22%2F%3E+%3CColorMapEntry+color%3D%22%23cc0000%22+quantity%3D%2275%22%2F%3E+%3CColorMapEntry+color%3D%22%234d0000%22+quantity%3D%22100%22%2F%3E+%3C%2FColorMap%3E+%3C%2Fse%3ARasterSymbolizer%3E+%3C%2Fse%3ARule%3E+%3C%2Fse%3AFeatureTypeStyle%3E+%3C%2FUserStyle%3E+%3C%2FNamedLayer%3E+%3C%2FStyledLayerDescriptor%3E" /></p>
+<p><img alt="Couche du SGPD avec un style SLD provenant de l'usager" src="https://geo.weather.gc.ca/geomet?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;LAYERS=GDPS.ETA_NT&amp;STYLES=&amp;CRS=EPSG:4326&amp;BBOX=35,-150,85,-45&amp;WIDTH=1800&amp;HEIGHT=1200&amp;FORMAT=image/png&amp;SLD_BODY=%22%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%20%3CStyledLayerDescriptor%20version%3D%221.0.0%22%20xmlns%3D%22http%3A%2F%2Fwww.opengis.net%2Fsld%22%20xmlns%3Aogc%3D%22http%3A%2F%2Fwww.opengis.net%2Fogc%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20xmlns%3Axsi%3D%22http%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema-instance%22%20xsi%3AschemaLocation%3D%22http%3A%2F%2Fwww.opengis.net%2Fsld%20http%3A%2F%2Fschemas.opengis.net%2Fsld%2F1.0.0%2FStyledLayerDescriptor.xsd%22%3E%20%3CNamedLayer%3E%20%3Cse%3AName%3EGDPS.ETA_NT%3C%2Fse%3AName%3E%20%3CUserStyle%3E%20%3CTitle%3ETEST%3C%2FTitle%3E%20%3Cse%3AFeatureTypeStyle%3E%20%3Cse%3ARule%3E%20%3Cse%3ARasterSymbolizer%3E%20%3Cse%3AOpacity%3E1.0%3C%2Fse%3AOpacity%3E%20%3CColorMap%3E%20%3CColorMapEntry%20color%3D%22%238cff66%22%20quantity%3D%220%22%2F%3E%20%3CColorMapEntry%20color%3D%22%23ffff00%22%20quantity%3D%2225%22%2F%3E%20%3CColorMapEntry%20color%3D%22%23b38600%22%20quantity%3D%2250%22%2F%3E%20%3CColorMapEntry%20color%3D%22%23cc0000%22%20quantity%3D%2275%22%2F%3E%20%3CColorMapEntry%20color%3D%22%234d0000%22%20quantity%3D%22100%22%2F%3E%20%3C%2FColorMap%3E%20%3C%2Fse%3ARasterSymbolizer%3E%20%3C%2Fse%3ARule%3E%20%3C%2Fse%3AFeatureTypeStyle%3E%20%3C%2FUserStyle%3E%20%3C%2FNamedLayer%3E%20%3C%2FStyledLayerDescriptor%3E%0A" /></p>
 <h2 id="web-coverage-service-wcs">Web Coverage Service (WCS)</h2>
 <p>Les requêtes de type <a href="https://www.opengeospatial.org/standards/wcs">OGC Web Coverage Service</a> permettent aux usagers de télécharger les données géospatiales brutes pour une région d'intérêt spécifique. Les requêtes WCS sont effectuée via l'Internet et offrent davantage de flexibilité lorsque comparées au téléchargement de fichiers bruts. Le service WCS rend possible plusieurs types de requêtes, qui sont décrites en détail ci-dessous.</p>
-<p>Notez que seule la version WCS 2.0.1 est présentement supportée par les services web GeoMet du SMC. Nous invitons les usagers à utiliser cette version du standard.</p>
+<p>Notez que seule la version WCS 2.0.1 est présentement supportée par les services web GeoMet du SMC. Nous invitons les usagers à utiliser cette version du standard. Il est aussi à noter que QGIS et ArcGIS ne supportent pas le WCS 2.0.1.</p>
 <h3 id="wcs-getcapabilities">WCS GetCapabilities</h3>
 <p>Une requête WCS GetCapabilities permet à l'usager de récupérer un document XML contenant les métadonnées décrivant le service. Ce document contient l'information sur le type de requêtes et les systèmes de coordonnées cartographiques supportées, ainsi que les couches pour lesquelles les données brutes sont disponibles.</p>
 <p>Une requête WCS GetCapabilities est composée des paramètres suivants :</p>
